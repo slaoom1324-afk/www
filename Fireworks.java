@@ -28,11 +28,13 @@ public final class Fireworks {
         }
         if (slot == -1) return false;
 
-        int previous = inv.getSelectedSlot();
-        inv.setSelectedSlot(slot);
+        int previous = inv.selectedSlot;
+        inv.selectedSlot = slot;
+
         mc.interactionManager.interactItem(player, Hand.MAIN_HAND);
         player.swingHand(Hand.MAIN_HAND);
-        inv.setSelectedSlot(previous);
+        inv.selectedSlot = previous;
+
         return true;
     }
 }
